@@ -28,14 +28,14 @@ class Linky(object):
 
     def run(self, config):
         self.config = config
-        #self.connect_mqtt()
+        self.connect_mqtt()
         self.connect_influxdb()
         for frame in Parser(UTInfo2()):
             print(frame)
             self.send_to_influx(frame)
-            #for item in frame:
-            #    pprint(item + ":" + frame[item])
-            #    self.client.publish("linky/"+ item, frame[item])
+            for item in frame:
+                #print("{}:{}".format(item, frame[item]))
+                self.client.publish("linky/"+ item, frame[item])
 
     def import_from_file(self, config):
         self.config = config
