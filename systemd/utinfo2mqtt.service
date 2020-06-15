@@ -1,0 +1,14 @@
+[Unit]
+Description=utinfo2mqtt Daemon - reads french power data from linky serial interface data and sends it to mqtt and influxdb
+
+[Service]
+ExecStart=/home/pi/utinfo2mqtt/utinfo2mqtt.py
+ExecStop=/bin/kill -s QUIT $MAINPID
+WorkingDirectory=/home/pi/utinfo2mqtt
+Restart=on-failure
+User=pi
+Group=pi
+
+[Install]
+WantedBy=multi-user.target
+
