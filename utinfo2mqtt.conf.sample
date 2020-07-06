@@ -1,9 +1,19 @@
+#
+# sample config file, rename or copy to utinfo2mqtt.conf
+#
 
 [mqtt]
-mqtt_host = 192.168.0.111
-mqtt_user = mqttuser
-mqtt_pass = mqttpass
+mqtt_host = 192.168.1.100
+mqtt_user = mqtt_user
+mqtt_pass = mqtt_password
 
 [utinfo2]
 port = /dev/ttyUSB0
+
+[influxdb]
+host = 192.168.1.100
+username = influx_user
+password = influx_password
+port = 8086
+database = linky
 
